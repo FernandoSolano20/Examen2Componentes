@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Journal</title>
+</head>
+<body>
+	<form action="actor" method="post">
+	<label>Nombre</label>
+	<input type="text" name="nombre">
+	
+	<select name="genero" id="genero">
+	  <option value="Mujer">Mujer</option>
+	  <option value="Hombre">Hombre</option>
+	  <option value="Otro">Otro</option>
+	</select>
+	
+	<label>Nacimiento</label>
+	<input type="text" name="nacimiento">
+	
+	<label>Estatura</label>
+	<input type="text" name="estatura">
+	
+	<select name="complexion" id="complexion">
+	  <option value="flaco">flaco</option>
+	  <option value="regular">regular</option>
+	  <option value="grueso">grueso</option>
+	</select>
+	
+	<label>Color de ojos</label>
+	<input type="text" name="ojos">
+	
+	<label>Color del pelo</label>
+	<input type="text" name="pelo">
+	
+	<button type="submit">Enviar</button>
+	</form>
+</body>
+</html>

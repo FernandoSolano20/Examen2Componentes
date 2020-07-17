@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Journal</title>
+</head>
+<body>
+<p th:text="${guion.nombre}"><p>
+	<form action="/guion/listProduction" method="post">
+	<input type="hidden" name="idGuion" th:value="${guion.id}">
+	
+	<select name="idActor" id="idActor" >
+		<option th:each="entry,status : ${hombres}" th:text="${entry.nombre}" th:value="${entry.id}">TITLE</option>
+	</select>
+	
+	<select name="idActriz" id="idActriz" >
+		<option th:each="entry,status : ${mujeres}" th:text="${entry.nombre}" th:value="${entry.id}">TITLE</option>
+	</select>
+	
+	<button type="submit">Enviar</button>
+	</form>
+</body>
+</html>

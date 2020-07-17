@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Journal</title>
+</head>
+<body>
+	<form action="guion" method="post">
+	<label>Nombre de la obra propuesta</label>
+	<input type="text" name="nombre">
+	
+	<label>Genero</label>
+	<input type="text" name="genero">
+	
+	<label>Idea central</label>
+	<input type="text" name="ideaCentral">
+	
+	<select name="idGuionista" id="idGuionista" >
+		<option th:each="entry,status : ${guionistas}" th:text="${entry.nombre}" th:value="${entry.id}">TITLE</option>
+	</select>
+	
+	<button type="submit">Enviar</button>
+	</form>
+</body>
+</html>

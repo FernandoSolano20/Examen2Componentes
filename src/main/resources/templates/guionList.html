@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Journal</title>
+</head>
+<body>
+<form action="list" method="post">
+	<input name="query" type="text">
+	<button type="submit">Buscar</button>
+</form>
+	<table>
+		 <tr>
+		    <th>Guion</th>
+		    <th>Genero</th>
+		    <th>Autor</th>
+		    <th>Listo para produccion</th>
+		  </tr>
+		  <tr th:each="entry,status : ${guion}" >
+		    <th th:text="${entry.nombre}">TITLE</th>
+		    <th th:text="${entry.genero}">TITLE</th>
+		    <th th:text="${entry.guionista.nombre}">TITLE</th>
+		    <th><input th:attrappend="data-id=${entry.id}" type="checkbox" class="estado" name="estado" th:checked="${entry.estado == 1}"></th>
+		  </tr>
+	</table>
+	
+	
+	<script>
+		var elements = document.querySelectorAll(".estado");
+		function update(event){
+			var element = event.target;
+			
+			fetch('http://localhost:8091/guion/updateEstado', {
+				  method: 'POST',
+				  headers: {
+					  "Content-Type": "application/x-www-form-urlencoded",
+				  },
+				  body: new URLSearchParams("id="+element.dataset.id+"&estado="+(element.checked ? 1 : 0)+"")
+			});
+		}
+		elements.forEach(x=>x.addEventListener('click',update))
+	</script>
+</body>
+</html>

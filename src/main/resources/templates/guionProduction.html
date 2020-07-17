@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Journal</title>
+</head>
+<body>
+	<table>
+		 <tr>
+		    <th>Guion</th>
+		    <th>Genero</th>
+		    <th>Autor</th>
+		  </tr>
+		  <tr th:each="entry,status : ${guion}" >
+		    <th th:text="${entry.nombre}">TITLE</th>
+		    <th th:text="${entry.genero}">TITLE</th>
+		    <th th:text="${entry.guionista.nombre}">TITLE</th>
+		    <th><a th:href="@{'/guion/listProduction/' + ${entry.id}}">See more</a></th>
+		  </tr>
+	</table>
+</body>
+</html>

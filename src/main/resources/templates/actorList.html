@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Journal</title>
+</head>
+<body>
+<form action="list" method="post">
+	<input name="nombre" type="text">
+	<button type="submit">Buscar</button>
+</form>
+
+<form action="list" method="post">
+	<label>Edad maxima</label>
+	<input name="maxEdad" type="text">
+	<label>Edad minima</label>
+	<input name="minEdad" type="text">
+	<button type="submit">Buscar</button>
+</form>
+	<table>
+		 <tr>
+		    <th>Nombre</th>
+		    <th>Genero</th>
+		    <th>Nacimiento</th>
+		    <th>Estatura</th>
+		    <th>Complexion</th>
+		    <th>Color de ojos</th>
+		    <th>Color de pelo</th>
+		  </tr>
+		  <tr th:each="entry,status : ${actor}" >
+		    <th th:text="${entry.nombre}">TITLE</th>
+		    <th th:text="${entry.genero}">TITLE</th>
+		    <th th:text="${entry.nacimiento}">TITLE</th>
+		    <th th:text="${entry.estatura}">TITLE</th>
+		    <th th:text="${entry.complexion}">TITLE</th>
+		    <th th:text="${entry.ojos}">TITLE</th>
+		    <th th:text="${entry.pelo}">TITLE</th>
+		   </tr>
+	</table>
+</body>
+</html>
