@@ -1,8 +1,10 @@
 package com.cenfotec.pomponio.web;
 
 import java.text.ParseException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cenfotec.pomponio.domain.Actor;
 import com.cenfotec.pomponio.service.ActorService;
@@ -61,5 +64,16 @@ public class ActorController {
 		}
 		
 		return "actorList";
+	}
+	
+	@RequestMapping(value="/fullactores", produces ={MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public @ResponseBody List<Actor> getAllActores(){  
+		return actorService.getAllActores();  
+	}
+	
+	@RequestMapping(value = "tableactor", method = RequestMethod.GET)
+	public String tableActor(Model model) throws ParseException 
+	{
+		return "dataTableActor";
 	}
 }

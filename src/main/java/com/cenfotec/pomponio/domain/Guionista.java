@@ -31,7 +31,7 @@ public class Guionista {
 	private Date nacimiento;
 	
 	@Transient
-	private SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 	
 	Guionista(){
 		

@@ -51,7 +51,7 @@ public class Actor {
     private Set<Guion> guiones = new HashSet<>();
 	
 	@Transient
-	private SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
 	public Actor() {
 		
